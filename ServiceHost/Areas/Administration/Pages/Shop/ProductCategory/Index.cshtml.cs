@@ -8,9 +8,9 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategory
     {
         private readonly IProductCategoryApplication _productCategoryApplication;
 
-        public List<ProductCategoryViewModel> CategoryViewModels { get; set; }
+        public List<ProductCategoryViewModel> CategoryViewModels = new();
 
-        public ProductCategorySearchModel CategorySearchModel { get; set; }
+        public ProductCategorySearchModel? CategorySearchModel;
 
 
 
@@ -21,6 +21,11 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategory
         public void OnGet(ProductCategorySearchModel searchModel)
         {
             _productCategoryApplication.Search(searchModel);
+        }
+
+        public IActionResult OnGetCreate()
+        {
+            return Partial("./Create", new CreateProductCategory());
         }
     }
 }
