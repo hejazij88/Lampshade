@@ -16,7 +16,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategory
 
         public IndexModel(IProductCategoryApplication productCategoryApplication)
         {
-            _productCategoryApplication= productCategoryApplication;
+            _productCategoryApplication = productCategoryApplication;
         }
         public void OnGet(ProductCategorySearchModel searchModel)
         {
@@ -26,6 +26,28 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductCategory
         public IActionResult OnGetCreate()
         {
             return Partial("./Create", new CreateProductCategory());
+        }
+
+        public JsonResult OnPostCreate(CreateProductCategory productCategory)
+        {
+            var result = _productCategoryApplication.Create(productCategory);
+            return new JsonResult(result);
+
+        }
+
+        public IActionResult OnGetEdit(long id)
+        {
+            var productCategory = _productCategoryApplication.GetDetails(id);
+            return Partial("Edit", productCategory);
+        }
+        public JsonResult OnPostEdit(EditProductCategory command)
+        {
+            if (ModelState.IsValid)
+            {
+            }
+
+            var result = _productCategoryApplication.Edit(command);
+            return new JsonResult(result);
         }
     }
 }
