@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35728.132 d17.12
+VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShopManagement", "ShopManagement", "{2F465E0F-3055-441C-BCAB-EBB16B676A74}"
 EndProject
@@ -22,6 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopManagement.Infrastructure.EFCore", "ShopManagement.Infrastructure.EFCore\ShopManagement.Infrastructure.EFCore.csproj", "{FC75662C-362C-4290-9E9F-435440FF173F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopManagement.Configuration", "ShopManagement.Configuration\ShopManagement.Configuration.csproj", "{216D47D5-72EA-4FE3-86B9-5E219B158515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceHost", "ServiceHost\ServiceHost.csproj", "{B9708621-FED0-43B1-BD35-595A7A9B1CC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{216D47D5-72EA-4FE3-86B9-5E219B158515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{216D47D5-72EA-4FE3-86B9-5E219B158515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{216D47D5-72EA-4FE3-86B9-5E219B158515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9708621-FED0-43B1-BD35-595A7A9B1CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9708621-FED0-43B1-BD35-595A7A9B1CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9708621-FED0-43B1-BD35-595A7A9B1CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9708621-FED0-43B1-BD35-595A7A9B1CC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
