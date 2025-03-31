@@ -1,16 +1,18 @@
-﻿using ShopManagement.Application.Contracts.ProductCategory;
+﻿using _0_Framework.Application;
+using ShopManagement.Application.Contracts.ProductCategory;
 using ShopManagement.Domain.ProductCategoryAgg;
 using System.Collections.Generic;
-using _0_Framework.Application;
 
 namespace ShopManagement.Application
 {
     public class ProductCategoryApplication : IProductCategoryApplication
     {
+        private readonly IFileUploader _fileUploader;
         private readonly IProductCategoryRepository _productCategoryRepostory;
 
-        public ProductCategoryApplication(IProductCategoryRepository productCategoryRepostory)
+        public ProductCategoryApplication(IProductCategoryRepository productCategoryRepostory, IFileUploader fileUploader)
         {
+            _fileUploader = fileUploader;
             _productCategoryRepostory = productCategoryRepostory;
         }
 
@@ -18,14 +20,15 @@ namespace ShopManagement.Application
         {
             var operation = new OperationResult();
             if (_productCategoryRepostory.Exists(x => x.Name == command.Name))
-                return operation.Failed("");
+                return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
 
             var picturePath = $"{command.Slug}";
+            var pictureName = _fileUploader.Upload(command.Picture, picturePath);
 
             var productCategory = new ProductCategory(command.Name, command.Description,
-                "picture", command.PictureAlt, command.PictureTitle, command.Keywords,
+                pictureName, command.PictureAlt, command.PictureTitle, command.Keywords,
                 command.MetaDescription, slug);
 
             _productCategoryRepostory.Create(productCategory);
@@ -39,16 +42,17 @@ namespace ShopManagement.Application
             var productCategory = _productCategoryRepostory.Get(command.Id);
 
             if (productCategory == null)
-                return operation.Failed("");
+                return operation.Failed(ApplicationMessages.RecordNotFound);
 
             if (_productCategoryRepostory.Exists(x => x.Name == command.Name && x.Id != command.Id))
-                return operation.Failed("");
+                return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
             
             var picturePath = $"{command.Slug}";
+            var fileName = _fileUploader.Upload(command.Picture, picturePath);
             
-            productCategory.Edit(command.Name, command.Description, "fileName",
+            productCategory.Edit(command.Name, command.Description, fileName,
                 command.PictureAlt, command.PictureTitle, command.Keywords,
                 command.MetaDescription, slug);
 

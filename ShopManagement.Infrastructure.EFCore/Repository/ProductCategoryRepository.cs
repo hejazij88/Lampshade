@@ -16,27 +16,35 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             _context = context;
         }
 
-        public EditProductCategory GetDetails(long id) => _context.ProductCategories.Select(x => new EditProductCategory()
+        public EditProductCategory GetDetails(long id)
         {
-            Id = x.Id,
-            Description = x.Description,
-            Name = x.Name,
-            Keywords = x.Keywords,
-            MetaDescription = x.MetaDescription,
-            //Picture = x.Picture,
-            PictureAlt = x.PictureAlt,
-            PictureTitle = x.PictureTitle,
-            Slug = x.Slug
-        }).FirstOrDefault(x => x.Id == id);
+            return _context.ProductCategories.Select(x => new EditProductCategory()
+            {
+                Id = x.Id,
+                Description = x.Description,
+                Name = x.Name,
+                Keywords = x.Keywords,
+                MetaDescription = x.MetaDescription,
+                //Picture = x.Picture,
+                PictureAlt = x.PictureAlt,
+                PictureTitle = x.PictureTitle,
+                Slug = x.Slug
+            }).FirstOrDefault(x => x.Id == id);
+        }
 
-        public List<ProductCategoryViewModel> GetProductCategories()=> _context.ProductCategories.Select(x => new ProductCategoryViewModel
+        public List<ProductCategoryViewModel> GetProductCategories()
         {
-            Id = x.Id,
-            Name = x.Name
-        }).ToList();
-       
+            return _context.ProductCategories.Select(x => new ProductCategoryViewModel
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList();
+        }
 
-        public string GetSlugById(long id)=> _context.ProductCategories.Select(x => new { x.Id, x.Slug }).FirstOrDefault(x => x.Id == id).Slug;
+        public string GetSlugById(long id)
+        {
+            return _context.ProductCategories.Select(x => new { x.Id, x.Slug }).FirstOrDefault(x => x.Id == id).Slug;
+        }
 
         public List<ProductCategoryViewModel> Search(ProductCategorySearchModel searchModel)
         {
