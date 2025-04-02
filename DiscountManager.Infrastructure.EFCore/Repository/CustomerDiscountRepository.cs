@@ -20,7 +20,7 @@ public class CustomerDiscountRepository:RepositoryBase<Guid,CustomerDiscount>,IC
     }
 
     public EditCustomerDiscount GedDetail(Guid Id) => _discountContext.CustomerDiscounts
-        .Select(cd => new EditCustomerDiscount {Id = cd.Id,DiscountRate = cd.DiscountRate,EndDate = cd.EndDate.ToString(),ProductId = cd.ProductId,Reasen = cd.Reasen,StartDate = cd.StartDate.ToString()}).FirstOrDefault(cd => cd.Id == Id);
+        .Select(cd => new EditCustomerDiscount {Id = cd.Id,DiscountRate = cd.DiscountRate,EndDate = cd.EndDate.ToFarsi(),ProductId = cd.ProductId,Reasen = cd.Reasen,StartDate = cd.StartDate.ToFarsi()}).FirstOrDefault(cd => cd.Id == Id);
 
     public List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel)
     {
@@ -35,21 +35,27 @@ public class CustomerDiscountRepository:RepositoryBase<Guid,CustomerDiscount>,IC
             EndDate = cd.EndDate.ToFarsi(),
             StartDateGre = cd.StartDate,
             EndDateGre = cd.EndDate,
-
-            DiscountRate = cd.DiscountRate
+            DiscountRate = cd.DiscountRate,
+            CreateDate = cd.CreationDate.ToFarsi()
         });
 
         if (searchModel.ProductId != Guid.Empty)
             query = query.Where(q => q.ProductId == searchModel.ProductId);
 
-        var startDate = searchModel.StartDate.ToGeorgianDateTime();
         if (!string.IsNullOrWhiteSpace(searchModel.StartDate))
+        {
+            var startDate = searchModel.StartDate.ToGeorgianDateTime();
             query = query.Where(q => q.StartDateGre > startDate);
 
+        }
 
-        var endDate = searchModel.EndDate.ToGeorgianDateTime();
+
         if (!string.IsNullOrWhiteSpace(searchModel.EndDate))
+        {
+            var endDate = searchModel.EndDate.ToGeorgianDateTime();
             query = query.Where(q => q.EndDateGre < endDate);
+
+        }
 
         var discount = query.OrderByDescending(q => q.Id).ToList();
 

@@ -7,4 +7,6 @@ public class CustomerDiscountViewModel:DefineCustomerDiscount
     public DateTime StartDateGre { get; set; }
     public DateTime EndDateGre { get; set; }
 
+    public string CreateDate { get; set; }
+
 }

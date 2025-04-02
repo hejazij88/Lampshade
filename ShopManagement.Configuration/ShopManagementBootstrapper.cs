@@ -1,5 +1,7 @@
 ﻿using _0_Framework.Application;
 using _0_Framework.Infrastructure;
+using _01_LampshadeQuery.Contacts;
+using _01_LampshadeQuery.Query;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using ShopManagement.Application;
@@ -26,6 +28,9 @@ namespace ShopManagement.Configuration
 
             services.AddTransient<ISlideApplication, SlideApplication>();
             services.AddTransient<ISlideRepository, SlideRepository>();
+
+            services.AddTransient<ISlideQuery, SlideQuery>();
+
 
 
             services.AddDbContext<ShopContext>(x => x.UseSqlServer(connectionString));
