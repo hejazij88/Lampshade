@@ -37,6 +37,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Application", "DM.Applic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManagement.Contract", "DiscountManagement.Contract\DiscountManagement.Contract.csproj", "{87C2AE1A-2D5D-4983-B579-B748B0480AD5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DM.Infrastructure", "DM.Infrastructure", "{7495662E-8D5C-4ECF-BF4D-4FE05EF8DE0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscountManager.Infrastructure.EFCore", "DiscountManager.Infrastructure.EFCore\DiscountManager.Infrastructure.EFCore.csproj", "{1BB39C42-EF6E-4E89-81D4-673FB0474819}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{87C2AE1A-2D5D-4983-B579-B748B0480AD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87C2AE1A-2D5D-4983-B579-B748B0480AD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87C2AE1A-2D5D-4983-B579-B748B0480AD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BB39C42-EF6E-4E89-81D4-673FB0474819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BB39C42-EF6E-4E89-81D4-673FB0474819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BB39C42-EF6E-4E89-81D4-673FB0474819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BB39C42-EF6E-4E89-81D4-673FB0474819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +108,8 @@ Global
 		{FD4CE527-61AF-41AA-98F1-52423F62F9B3} = {7B84AB6C-973E-4332-8AB8-AA09376DA989}
 		{754FF077-CF88-47CD-A782-CB0FB262ED04} = {DE5B0834-A82B-45FF-B922-AE87EFA0AB73}
 		{87C2AE1A-2D5D-4983-B579-B748B0480AD5} = {754FF077-CF88-47CD-A782-CB0FB262ED04}
+		{7495662E-8D5C-4ECF-BF4D-4FE05EF8DE0C} = {DE5B0834-A82B-45FF-B922-AE87EFA0AB73}
+		{1BB39C42-EF6E-4E89-81D4-673FB0474819} = {7495662E-8D5C-4ECF-BF4D-4FE05EF8DE0C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E5EFC193-1AF8-44E6-8937-00A6F709052A}
