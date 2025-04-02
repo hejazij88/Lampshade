@@ -8,7 +8,7 @@ public interface ICustomerDiscountApplication
 
     OperationResult Edit(EditCustomerDiscount editCustomerDiscount);
 
-    EditCustomerDiscount GedDetail(Guid Id);
+    EditCustomerDiscount GedDetail(Guid id);
 
     List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel);
 }

@@ -1,4 +1,5 @@
-﻿using _0_Framework.Domain;
+﻿using _0_Framework.Application;
+using _0_Framework.Domain;
 using _0_Framework.Infrastructure;
 using DiscountManagement.Contract.CustomerDiscount;
 using DiscountManagement.Domain.CustomerDiscountAgg;
@@ -30,8 +31,8 @@ public class CustomerDiscountRepository:RepositoryBase<Guid,CustomerDiscount>,IC
             Id=cd.Id,
             ProductId = cd.ProductId,
             Reasen = cd.Reasen,
-            StartDate = cd.StartDate.ToString(),
-            EndDate = cd.EndDate.ToString(),
+            StartDate = cd.StartDate.ToFarsi(),
+            EndDate = cd.EndDate.ToFarsi(),
             StartDateGre = cd.StartDate,
             EndDateGre = cd.EndDate,
 
@@ -41,12 +42,12 @@ public class CustomerDiscountRepository:RepositoryBase<Guid,CustomerDiscount>,IC
         if (searchModel.ProductId != Guid.Empty)
             query = query.Where(q => q.ProductId == searchModel.ProductId);
 
-        var startDate = DateTime.Now;
+        var startDate = searchModel.StartDate.ToGeorgianDateTime();
         if (!string.IsNullOrWhiteSpace(searchModel.StartDate))
             query = query.Where(q => q.StartDateGre > startDate);
 
 
-        var endDate = DateTime.Now;
+        var endDate = searchModel.EndDate.ToGeorgianDateTime();
         if (!string.IsNullOrWhiteSpace(searchModel.EndDate))
             query = query.Where(q => q.EndDateGre < endDate);
 
