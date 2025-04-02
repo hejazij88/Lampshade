@@ -5,7 +5,7 @@ namespace DiscountManagement.Domain.CustomerDiscountAgg;
 
 public interface ICustomerDiscountRepository:IRepository<Guid,CustomerDiscount>
 {
-    EditCustomerDiscount GedDetail(Guid Id);
+    EditColleagueDiscount GedDetail(Guid Id);
 
-    List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel);
+    List<ColleagueDiscountViewModel> Search(ColleagueDiscountSearchModel searchModel);
 }

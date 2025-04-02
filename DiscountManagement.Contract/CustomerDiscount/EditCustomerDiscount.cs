@@ -1,6 +1,6 @@
 ﻿namespace DiscountManagement.Contract.CustomerDiscount;
 
-public class EditCustomerDiscount : DefineCustomerDiscount
+public class EditColleagueDiscount : DefineColleagueDiscount
 {
     public Guid Id { get; set; }
 }

@@ -4,11 +4,11 @@ namespace DiscountManagement.Contract.CustomerDiscount;
 
 public interface ICustomerDiscountApplication
 {
-    OperationResult Define(DefineCustomerDiscount defineCustomerDiscount);
+    OperationResult Define(DefineColleagueDiscount defineCustomerDiscount);
 
-    OperationResult Edit(EditCustomerDiscount editCustomerDiscount);
+    OperationResult Edit(EditColleagueDiscount editCustomerDiscount);
 
-    EditCustomerDiscount GedDetail(Guid id);
+    EditColleagueDiscount GedDetail(Guid id);
 
-    List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel);
+    List<ColleagueDiscountViewModel> Search(ColleagueDiscountSearchModel searchModel);
 }

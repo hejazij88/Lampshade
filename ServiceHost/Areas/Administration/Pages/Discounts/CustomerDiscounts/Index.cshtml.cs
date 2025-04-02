@@ -12,8 +12,8 @@ namespace ServiceHost.Areas.Administration.Pages.Discounts.CustomerDiscounts
     public class IndexModel : PageModel
     {
         [TempData] public string Message { get; set; }
-        public CustomerDiscountSearchModel SearchModel;
-        public List<CustomerDiscountViewModel> CustomerDiscountViewModels;
+        public ColleagueDiscountSearchModel SearchModel;
+        public List<ColleagueDiscountViewModel> CustomerDiscountViewModels;
         public SelectList Products;
 
         private readonly IProductApplication _productApplication;
@@ -27,7 +27,7 @@ namespace ServiceHost.Areas.Administration.Pages.Discounts.CustomerDiscounts
         }
 
         //[NeedsPermission(ShopPermissions.ListProducts)]
-        public void OnGet(CustomerDiscountSearchModel searchModel)
+        public void OnGet(ColleagueDiscountSearchModel searchModel)
         {
             Products = new SelectList(_productApplication.GetProducts(), "Id", "Name");
             CustomerDiscountViewModels = _customerDiscountApplication.Search(searchModel);
@@ -35,7 +35,7 @@ namespace ServiceHost.Areas.Administration.Pages.Discounts.CustomerDiscounts
 
         public IActionResult OnGetCreate()
         {
-            var command = new DefineCustomerDiscount()
+            var command = new DefineColleagueDiscount()
             {
                 Products = _productApplication.GetProducts()
             };
@@ -43,7 +43,7 @@ namespace ServiceHost.Areas.Administration.Pages.Discounts.CustomerDiscounts
         }
 
         //[NeedsPermission(ShopPermissions.CreateProduct)]
-        public JsonResult OnPostCreate(DefineCustomerDiscount command)
+        public JsonResult OnPostCreate(DefineColleagueDiscount command)
         {
             var result = _customerDiscountApplication.Define(command);
             return new JsonResult(result);
@@ -57,7 +57,7 @@ namespace ServiceHost.Areas.Administration.Pages.Discounts.CustomerDiscounts
         }
 
         //[NeedsPermission(ShopPermissions.EditProduct)]
-        public JsonResult OnPostEdit(EditCustomerDiscount command)
+        public JsonResult OnPostEdit(EditColleagueDiscount command)
         {
             var result = _customerDiscountApplication.Edit(command);
             return new JsonResult(result);

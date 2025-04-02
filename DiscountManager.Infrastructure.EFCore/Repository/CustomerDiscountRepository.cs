@@ -19,14 +19,14 @@ public class CustomerDiscountRepository:RepositoryBase<Guid,CustomerDiscount>,IC
         _shopContext = shopContext;
     }
 
-    public EditCustomerDiscount GedDetail(Guid Id) => _discountContext.CustomerDiscounts
-        .Select(cd => new EditCustomerDiscount {Id = cd.Id,DiscountRate = cd.DiscountRate,EndDate = cd.EndDate.ToFarsi(),ProductId = cd.ProductId,Reasen = cd.Reasen,StartDate = cd.StartDate.ToFarsi()}).FirstOrDefault(cd => cd.Id == Id);
+    public EditColleagueDiscount GedDetail(Guid Id) => _discountContext.CustomerDiscounts
+        .Select(cd => new EditColleagueDiscount {Id = cd.Id,DiscountRate = cd.DiscountRate,EndDate = cd.EndDate.ToFarsi(),ProductId = cd.ProductId,Reasen = cd.Reasen,StartDate = cd.StartDate.ToFarsi()}).FirstOrDefault(cd => cd.Id == Id);
 
-    public List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel)
+    public List<ColleagueDiscountViewModel> Search(ColleagueDiscountSearchModel searchModel)
     {
         var products = _shopContext.Products.Select(p=>new  {p.Id,p.Name}).ToList();
 
-        var query = _discountContext.CustomerDiscounts.Select(cd => new CustomerDiscountViewModel
+        var query = _discountContext.CustomerDiscounts.Select(cd => new ColleagueDiscountViewModel
         {
             Id=cd.Id,
             ProductId = cd.ProductId,

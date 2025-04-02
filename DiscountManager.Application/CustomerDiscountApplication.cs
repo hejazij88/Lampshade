@@ -12,7 +12,7 @@ public class CustomerDiscountApplication:ICustomerDiscountApplication
     {
         _customerDiscountRepository = customerDiscountRepository;
     }
-    public OperationResult Define(DefineCustomerDiscount defineCustomerDiscount)
+    public OperationResult Define(DefineColleagueDiscount defineCustomerDiscount)
     {
         var operation = new OperationResult();
 
@@ -25,7 +25,7 @@ public class CustomerDiscountApplication:ICustomerDiscountApplication
         return operation.Succedded();
     }
 
-    public OperationResult Edit(EditCustomerDiscount editCustomerDiscount)
+    public OperationResult Edit(EditColleagueDiscount editCustomerDiscount)
     {
         var operation = new OperationResult();
 
@@ -42,9 +42,9 @@ public class CustomerDiscountApplication:ICustomerDiscountApplication
         return operation.Succedded();
     }
 
-    public EditCustomerDiscount GedDetail(Guid id) => _customerDiscountRepository.GedDetail(id);
+    public EditColleagueDiscount GedDetail(Guid id) => _customerDiscountRepository.GedDetail(id);
 
 
-    public List<CustomerDiscountViewModel> Search(CustomerDiscountSearchModel searchModel) =>
+    public List<ColleagueDiscountViewModel> Search(ColleagueDiscountSearchModel searchModel) =>
         _customerDiscountRepository.Search(searchModel);
 }
