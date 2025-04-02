@@ -62,7 +62,7 @@ namespace ShopManagement.Application
             return operation.Succedded();
         }
 
-        public EditProduct GetDetails(long id)
+        public EditProduct GetDetails(Guid id)
         {
             return _productRepository.GetDetails(id);
         }

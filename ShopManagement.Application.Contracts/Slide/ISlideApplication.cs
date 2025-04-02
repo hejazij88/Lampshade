@@ -1,4 +1,5 @@
 ﻿using _0_Framework.Application;
+using System;
 using System.Collections.Generic;
 
 namespace ShopManagement.Application.Contracts.Slide
@@ -7,9 +8,9 @@ namespace ShopManagement.Application.Contracts.Slide
     {
         OperationResult Create(CreateSlide command);
         OperationResult Edit(EditSlide command);
-        OperationResult Remove(long id);
-        OperationResult Restore(long id);
-        EditSlide GetDetails(long id);
+        OperationResult Remove(Guid id);
+        OperationResult Restore(Guid id);
+        EditSlide GetDetails(Guid id);
         List<SlideViewModel> GetList();
     }
 }

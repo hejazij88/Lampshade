@@ -1,4 +1,5 @@
-﻿using _0_Framework.Application;
+﻿using System;
+using _0_Framework.Application;
 using Microsoft.AspNetCore.Http;
 using ShopManagement.Application.Contracts.ProductCategory;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace ShopManagement.Application.Contracts.Product
         public string PictureTitle { get; set; }
 
         [Range(1, 100000, ErrorMessage = ValidationMessages.IsRequired)]
-        public long CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string Slug { get; set; }

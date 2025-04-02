@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
-    public class SlideRepository : RepositoryBase<long, Slide>, ISlideRepository
+    public class SlideRepository : RepositoryBase<Guid, Slide>, ISlideRepository
     {
         private readonly ShopContext _context;
 
@@ -17,7 +17,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             _context = context;
         }
 
-        public EditSlide GetDetails(long id)
+        public EditSlide GetDetails(Guid id)
         {
             return _context.Slides.Select(x => new EditSlide
             {

@@ -1,6 +1,7 @@
 ﻿using _0_Framework.Application;
 using ShopManagement.Application.Contracts.ProductCategory;
 using ShopManagement.Domain.ProductCategoryAgg;
+using System;
 using System.Collections.Generic;
 
 namespace ShopManagement.Application
@@ -60,7 +61,7 @@ namespace ShopManagement.Application
             return operation.Succedded();
         }
 
-        public EditProductCategory GetDetails(long id)
+        public EditProductCategory GetDetails(Guid id)
         {
             return _productCategoryRepostory.GetDetails(id);
         }

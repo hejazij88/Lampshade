@@ -1,4 +1,5 @@
 ﻿using _0_Framework.Application;
+using System;
 using System.Collections.Generic;
 
 namespace ShopManagement.Application.Contracts.Product
@@ -7,7 +8,7 @@ namespace ShopManagement.Application.Contracts.Product
     {
         OperationResult Create(CreateProduct command);
         OperationResult Edit(EditProduct command);
-        EditProduct GetDetails(long id);
+        EditProduct GetDetails(Guid id);
         List<ProductViewModel> GetProducts();
         List<ProductViewModel> Search(ProductSearchModel searchModel);
     }

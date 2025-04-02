@@ -1,4 +1,5 @@
-﻿using _0_Framework.Application;
+﻿using System;
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using ShopManagement.Application.Contracts.ProductCategory;
 using ShopManagement.Domain.ProductCategoryAgg;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
-    public class ProductCategoryRepository : RepositoryBase<long, ProductCategory>, IProductCategoryRepository
+    public class ProductCategoryRepository : RepositoryBase<Guid, ProductCategory>, IProductCategoryRepository
     {
         private readonly ShopContext _context;
 
@@ -16,7 +17,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             _context = context;
         }
 
-        public EditProductCategory GetDetails(long id)
+        public EditProductCategory GetDetails(Guid id)
         {
             return _context.ProductCategories.Select(x => new EditProductCategory()
             {
@@ -41,7 +42,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             }).ToList();
         }
 
-        public string GetSlugById(long id)
+        public string GetSlugById(Guid id)
         {
             return _context.ProductCategories.Select(x => new { x.Id, x.Slug }).FirstOrDefault(x => x.Id == id).Slug;
         }

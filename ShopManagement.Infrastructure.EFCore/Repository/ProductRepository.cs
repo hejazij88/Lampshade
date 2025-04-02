@@ -1,4 +1,5 @@
-﻿using _0_Framework.Application;
+﻿using System;
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.Product;
@@ -8,7 +9,7 @@ using System.Linq;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
-    public class ProductRepository : RepositoryBase<long, Product>, IProductRepository
+    public class ProductRepository : RepositoryBase<Guid, Product>, IProductRepository
     {
         private readonly ShopContext _context;
 
@@ -17,7 +18,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             _context = context;
         }
 
-        public EditProduct GetDetails(long id)
+        public EditProduct GetDetails(Guid id)
         {
             return _context.Products.Select(x => new EditProduct
             {
@@ -44,7 +45,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             }).ToList();
         }
 
-        public Product GetProductWithCategory(long id)
+        public Product GetProductWithCategory(Guid id)
         {
             return _context.Products.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
         }
@@ -70,7 +71,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             if (!string.IsNullOrWhiteSpace(searchModel.Code))
                 query = query.Where(x => x.Code.Contains(searchModel.Code));
 
-            if (searchModel.CategoryId != 0)
+            if (searchModel.CategoryId != Guid.Empty)
                 query = query.Where(x => x.CategoryId == searchModel.CategoryId);
 
             return query.OrderByDescending(x => x.Id).ToList();

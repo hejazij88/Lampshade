@@ -1,4 +1,5 @@
-﻿using _0_Framework.Application;
+﻿using System;
+using _0_Framework.Application;
 using ShopManagement.Application.Contracts.Slide;
 using ShopManagement.Domain.SlideAgg;
 using System.Collections.Generic;
@@ -45,7 +46,7 @@ namespace ShopManagement.Application
             return operation.Succedded();
         }
 
-        public EditSlide GetDetails(long id)
+        public EditSlide GetDetails(Guid id)
         {
             return _slideRepository.GetDetails(id);
         }
@@ -55,7 +56,7 @@ namespace ShopManagement.Application
             return _slideRepository.GetList();
         }
 
-        public OperationResult Remove(long id)
+        public OperationResult Remove(Guid id)
         {
             var operation = new OperationResult();
             var slide = _slideRepository.Get(id);
@@ -67,7 +68,7 @@ namespace ShopManagement.Application
             return operation.Succedded();
         }
 
-        public OperationResult Restore(long id)
+        public OperationResult Restore(Guid id)
         {
             var operation = new OperationResult();
             var slide = _slideRepository.Get(id);

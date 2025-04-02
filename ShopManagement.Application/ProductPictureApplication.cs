@@ -2,6 +2,7 @@
 using ShopManagement.Application.Contracts.ProductPicture;
 using ShopManagement.Domain.ProductAgg;
 using ShopManagement.Domain.ProductPictureAgg;
+using System;
 using System.Collections.Generic;
 
 namespace ShopManagement.Application
@@ -51,12 +52,12 @@ namespace ShopManagement.Application
             return operation.Succedded();
         }
 
-        public EditProductPicture GetDetails(long id)
+        public EditProductPicture GetDetails(Guid id)
         {
             return _productPictureRepository.GetDetails(id);
         }
 
-        public OperationResult Remove(long id)
+        public OperationResult Remove(Guid id)
         {
             var operation = new OperationResult();
             var productPicture = _productPictureRepository.Get(id);
@@ -68,7 +69,7 @@ namespace ShopManagement.Application
             return operation.Succedded();
         }
 
-        public OperationResult Restore(long id)
+        public OperationResult Restore(Guid id)
         {
             var operation = new OperationResult();
             var productPicture = _productPictureRepository.Get(id);

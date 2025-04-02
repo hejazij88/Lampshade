@@ -48,7 +48,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Products
             return new JsonResult(result);
         }
 
-        public IActionResult OnGetEdit(long id)
+        public IActionResult OnGetEdit(Guid id)
         {
             var product = _productApplication.GetDetails(id);
             product.Categories = _productCategoryApplication.GetProductCategories();

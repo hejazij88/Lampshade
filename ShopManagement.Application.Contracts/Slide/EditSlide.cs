@@ -1,7 +1,9 @@
-﻿namespace ShopManagement.Application.Contracts.Slide
+﻿using System;
+
+namespace ShopManagement.Application.Contracts.Slide
 {
     public class EditSlide : CreateSlide
     {
-        public long Id { get; set; }
+        public Guid Id { get; set; }
     }
 }

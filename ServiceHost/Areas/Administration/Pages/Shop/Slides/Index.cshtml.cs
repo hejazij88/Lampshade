@@ -38,7 +38,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Slides
             return new JsonResult(result);
         }
 
-        public IActionResult OnGetEdit(long id)
+        public IActionResult OnGetEdit(Guid id)
         {
             var slide = _slideApplication.GetDetails(id);
             return Partial("Edit", slide);
@@ -50,7 +50,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Slides
             return new JsonResult(result);
         }
 
-        public IActionResult OnGetRemove(long id)
+        public IActionResult OnGetRemove(Guid id)
         {
             var result = _slideApplication.Remove(id);
             if (result.IsSuccedded)
@@ -60,7 +60,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.Slides
             return RedirectToPage("./Index");
         }
 
-        public IActionResult OnGetRestore(long id)
+        public IActionResult OnGetRestore(Guid id)
         {
             var result = _slideApplication.Restore(id);
             if (result.IsSuccedded)

@@ -44,7 +44,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductPictures
             return new JsonResult(result);
         }
 
-        public IActionResult OnGetEdit(long id)
+        public IActionResult OnGetEdit(Guid id)
         {
             var productPicture = _productPictureApplication.GetDetails(id);
             productPicture.Products = _productApplication.GetProducts();
@@ -57,7 +57,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductPictures
             return new JsonResult(result);
         }
 
-        public IActionResult OnGetRemove(long id)
+        public IActionResult OnGetRemove(Guid id)
         {
             var result = _productPictureApplication.Remove(id);
             if (result.IsSuccedded)
@@ -67,7 +67,7 @@ namespace ServiceHost.Areas.Administration.Pages.Shop.ProductPictures
             return RedirectToPage("./Index");
         }
 
-        public IActionResult OnGetRestore(long id)
+        public IActionResult OnGetRestore(Guid id)
         {
             var result = _productPictureApplication.Restore(id);
             if (result.IsSuccedded)

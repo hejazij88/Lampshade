@@ -1,4 +1,5 @@
-﻿using _0_Framework.Infrastructure;
+﻿using System;
+using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using ShopManagement.Application.Contracts.ProductPicture;
 using ShopManagement.Domain.ProductPictureAgg;
@@ -7,7 +8,7 @@ using System.Linq;
 
 namespace ShopManagement.Infrastructure.EFCore.Repository
 {
-    public class ProductPictureRepository : RepositoryBase<long, ProductPicture>, IProductPictureRepository
+    public class ProductPictureRepository : RepositoryBase<Guid, ProductPicture>, IProductPictureRepository
     {
         private readonly ShopContext _context;
 
@@ -16,7 +17,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
             _context = context;
         }
 
-        public EditProductPicture GetDetails(long id)
+        public EditProductPicture GetDetails(Guid id)
         {
             return _context.ProductPictures
                 .Select(x => new EditProductPicture
@@ -28,7 +29,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                 }).FirstOrDefault(x => x.Id == id);
         }
 
-        public ProductPicture GetWithProductAndCategory(long id)
+        public ProductPicture GetWithProductAndCategory(Guid id)
         {
             return _context.ProductPictures
                 .Include(x => x.Product)
@@ -50,7 +51,7 @@ namespace ShopManagement.Infrastructure.EFCore.Repository
                     IsRemoved = x.IsRemoved
                 });
 
-            if (searchModel.ProductId != 0)
+            if (searchModel.ProductId != Guid.Empty)
                 query = query.Where(x => x.ProductId == searchModel.ProductId);
 
             return query.OrderByDescending(x => x.Id).ToList();

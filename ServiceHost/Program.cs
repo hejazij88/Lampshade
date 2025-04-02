@@ -1,3 +1,5 @@
+using _0_Framework.Application;
+using ServiceHost;
 using ShopManagement.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("LampShade");
 
 ShopManagementBootstrapper.Configure(builder.Services, connectionString);
+    builder.Services.AddTransient<IFileUploader, FileUploader>();
+
 
 // Add services to the container.
 builder.Services.AddRazorPages();

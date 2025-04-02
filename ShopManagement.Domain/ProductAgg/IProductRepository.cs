@@ -1,13 +1,14 @@
-﻿using _0_Framework.Domain;
+﻿using System;
+using _0_Framework.Domain;
 using ShopManagement.Application.Contracts.Product;
 using System.Collections.Generic;
 
 namespace ShopManagement.Domain.ProductAgg
 {
-    public interface IProductRepository : IRepository<long, Product>
+    public interface IProductRepository : IRepository<Guid, Product>
     {
-        EditProduct GetDetails(long id);
-        Product GetProductWithCategory(long id);
+        EditProduct GetDetails(Guid id);
+        Product GetProductWithCategory(Guid id);
         List<ProductViewModel> GetProducts();
         List<ProductViewModel> Search(ProductSearchModel searchModel);
     }
