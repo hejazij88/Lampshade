@@ -22,7 +22,7 @@ public class Inventory:EntityBase
     }
 
 
-    private long CalculateCurrentCount()
+    public long CalculateCurrentCount()
     {
         var plus = Operations.Where(o => o.Operation).Sum(o => o.Count);
         var minus = Operations.Where(o => !o.Operation).Sum(o => o.Count);

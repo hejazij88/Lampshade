@@ -1,5 +1,7 @@
 using _0_Framework.Application;
+using BlogManagement.Infrastructure.Configuration;
 using DiscountManagerInfrastructure.Configuration;
+using InventoryManagement.Infrastructure.Configuration;
 using ServiceHost;
 using ShopManagement.Configuration;
 
@@ -9,6 +11,9 @@ var connectionString = builder.Configuration.GetConnectionString("LampShade");
 
 ShopManagementBootstrapper.Configure(builder.Services, connectionString);
 DiscountManagerBootstrapper.Configure(builder.Services, connectionString);
+InventoryManagementBootstrapper.Configure(builder.Services, connectionString);
+BlogManagementBootstrapper.Configure(builder.Services, connectionString);
+
 
 builder.Services.AddTransient<IFileUploader, FileUploader>();
 
