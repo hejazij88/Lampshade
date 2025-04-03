@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.Design;
+using DiscountManagement.Contract.ColleagueDiscount;
 using DiscountManagement.Contract.CustomerDiscount;
+using DiscountManagement.Domain.ColleagueDiscountAgg;
 using DiscountManagement.Domain.CustomerDiscountAgg;
 using DiscountManager.Application;
 using DiscountManager.Infrastructure.EFCore;
@@ -16,6 +18,8 @@ public class DiscountManagerBootstrapper
         services.AddTransient<ICustomerDiscountRepository, CustomerDiscountRepository>();
         services.AddTransient<ICustomerDiscountApplication, CustomerDiscountApplication>();
 
+        services.AddTransient<IColleagueDiscountRepository, ColleagueDiscountRepository>();
+        services.AddTransient<IColleagueDiscountApplication, ColleagueDiscountApplication>();
 
         services.AddDbContext<DiscountContext>(db => db.UseSqlServer(connectionString));
 
