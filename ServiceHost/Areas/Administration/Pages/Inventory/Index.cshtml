@@ -1,6 +1,5 @@
 ﻿@page
-@* @using InventoryManagement.Infrastructure.Configuration.Permissions
- *@@model ServiceHost.Areas.Administration.Pages.Inventory.IndexModel
+@model ServiceHost.Areas.Administration.Pages.Inventory.IndexModel
 @{
 }
 
@@ -8,6 +7,10 @@
     Layout = "Shared/_AdminLayout";
     ViewData["title"] = "مدیریت انبار";
 }
+
+@* @using InventoryManagement.Infrastructure.Configuration.Permissions
+ *@
+
 
 <div class="row">
     <div class="col-sm-12">
