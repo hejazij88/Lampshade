@@ -40,6 +40,5 @@ app.UseAuthorization();
 app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
-app.MapDefaultControllerRoute();
 
 app.Run();

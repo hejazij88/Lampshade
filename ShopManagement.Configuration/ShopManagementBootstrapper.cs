@@ -31,6 +31,8 @@ namespace ShopManagement.Configuration
 
             services.AddTransient<ISlideQuery, SlideQuery>();
             services.AddTransient<IProductCategoryQuery, ProductCategoryQuery>();
+            //services.AddTransient<IProductQuery, ProductQ>();
+
 
 
 
