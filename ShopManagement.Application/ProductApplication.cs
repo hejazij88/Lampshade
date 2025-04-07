@@ -28,7 +28,7 @@ namespace ShopManagement.Application
 
             var slug = command.Slug.Slugify();
             var categorySlug = _productCategoryRepository.GetSlugById(command.CategoryId);
-            var path = $"{categorySlug}//{slug}";
+            var path = $"ProductPicture//{categorySlug}//{slug}";
             var picturePath = _fileUploader.Upload(command.Picture, path);
             var product = new Product(command.Name, command.Code,
                 command.ShortDescription, command.Description, picturePath,
