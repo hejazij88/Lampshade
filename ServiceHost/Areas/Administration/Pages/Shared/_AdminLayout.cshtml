@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Coderthemes">
 
-    <link rel="shortcut icon" href="images/favicon_1.ico">
+    <link rel="shortcut icon" href="~/AdminTheme/images/favicon_1.ico">
 
     <title>@ViewData["Title"] | Lampshade Shop</title>
     <meta name="keywords" content="" />
@@ -13,6 +13,7 @@
 
     <!-- Base Css Files -->
     <link href="~/AdminTheme/assets/css/bootstrap.min.css" rel="stylesheet" />
+
 
     <!-- Font Icons -->
     <link href="~/AdminTheme/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -50,7 +51,7 @@
             <!-- LOGO -->
             <div class="topbar-left">
                 <div class="text-center">
-                    <a href="index.html" class="logo"><i class="md md-terrain"></i> <span> Lampshade </span></a>
+                    <a asp-page="./Index" class="logo"><i class="md md-terrain"></i> <span> Lampshade </span></a>
                 </div>
             </div>
             <!-- Button mobile view to collapse sidebar menu -->
@@ -146,8 +147,8 @@
             </div>
         </div>
 
-@*         <partial name="_Menu" />
- *@
+        <partial name="_Menu" />
+
         <div class="content-page">
             <!-- Start content -->
             <div class="content">
@@ -160,7 +161,8 @@
             </div> <!-- content -->
 
             <footer class="footer text-right">
-Foother             </footer>
+                Hejazi
+            </footer>
 
         </div>
     </div>
@@ -168,6 +170,9 @@ Foother             </footer>
     <div id="MainModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content" id="ModalContent">
+
+
+
             </div>
         </div>
     </div>
@@ -217,7 +222,7 @@ Foother             </footer>
     <script src="~/AdminTheme/assets/js/jquery.todo.js"></script>
 
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
     <script src="~/AdminTheme/assets/js/site.js"></script>
 

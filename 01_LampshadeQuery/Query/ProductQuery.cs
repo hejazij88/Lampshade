@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using _01_LampshadeQuery.Contacts;
 using DiscountManager.Infrastructure.EFCore;
+using ShopManagement.Application.Contracts.Order;
 
 namespace _01_LampshadeQuery.Query
 {
@@ -198,18 +199,18 @@ namespace _01_LampshadeQuery.Query
             return products;
         }
 
-        //public List<CartItem> CheckInventoryStatus(List<CartItem> cartItems)
-        //{
-        //    var inventory = _inventoryContext.Inventory.ToList();
+        public List<CartItem> CheckInventoryStatus(List<CartItem> cartItems)
+        {
+            var inventory = _inventoryContext.Inventory.ToList();
 
-        //    foreach (var cartItem in cartItems.Where(cartItem =>
-        //        inventory.Any(x => x.ProductId == cartItem.Id && x.InStock)))
-        //    {
-        //        var itemInventory = inventory.Find(x => x.ProductId == cartItem.Id);
-        //        cartItem.IsInStock = itemInventory.CalculateCurrentCount() >= cartItem.Count;
-        //    }
+            foreach (var cartItem in cartItems.Where(cartItem =>
+                inventory.Any(x => x.ProductId == cartItem.Id && x.IsStock)))
+            {
+                var itemInventory = inventory.Find(x => x.ProductId == cartItem.Id);
+                cartItem.IsInStock = itemInventory.CalculateCurrentCount() >= cartItem.Count;
+            }
 
-        //    return cartItems;
-        //}
+            return cartItems;
+        }
     }
 }

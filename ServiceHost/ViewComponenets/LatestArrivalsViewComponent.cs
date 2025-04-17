@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceHost.ViewComponenets
 {
-    public class LatestArrivalsViewComponent : ViewComponent
+    public class LatestArrivalsViewComponent : Microsoft.AspNetCore.Mvc.ViewComponent
     {
         private readonly IProductQuery _productQuery;
 

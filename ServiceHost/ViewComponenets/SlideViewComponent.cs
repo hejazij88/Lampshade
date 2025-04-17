@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceHost.ViewComponenets;
 
-public class SlideViewComponent : ViewComponent
+public class SlideViewComponent : Microsoft.AspNetCore.Mvc.ViewComponent
 {
     private readonly ISlideQuery _slideQuery;
 

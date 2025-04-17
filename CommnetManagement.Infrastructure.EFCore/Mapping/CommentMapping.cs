@@ -15,6 +15,11 @@ namespace CommnetManagement.Infrastructure.EFCore.Mapping
             builder.Property(x => x.Email).HasMaxLength(500);
             builder.Property(x => x.Website).HasMaxLength(500);
             builder.Property(x => x.Message).HasMaxLength(1000);
+
+                builder.HasOne(c => c.Parent)
+                .WithMany(c => c.Replies)
+                .HasForeignKey(c => c.ParentId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ServiceHost.ViewComponents
 {
-    public class ProductCategoryWithProductViewComponent : ViewComponent
+    public class ProductCategoryWithProductViewComponent : Microsoft.AspNetCore.Mvc.ViewComponent
     {
         private readonly IProductCategoryQuery _productCategoryQuery;
 

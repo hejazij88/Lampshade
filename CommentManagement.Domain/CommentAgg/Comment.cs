@@ -15,6 +15,7 @@ namespace CommentManagement.Domain.CommentAgg
         public int Type { get; private set; }
         public Guid ParentId { get; private set; }
         public Comment Parent { get; private set; }
+        public ICollection<Comment> Replies { get; private set; } = new List<Comment>();
 
         public Comment(string name, string email, string website, string message, Guid ownerRecordId, int type, Guid parentId)
         {
